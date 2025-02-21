@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -54,6 +54,16 @@ const Button = styled.button`
   }
 `;
 
+const StyledLink = styled(Link)`
+  display: block;
+  text-align: center;
+  color: #008EDE;
+  text-decoration: none;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
+  margin-bottom: 16px;
+`;
+
 const SignUp = () => {
   const [formData, setFormData] = useState({
     login: '',
@@ -92,6 +102,7 @@ const SignUp = () => {
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
+        <StyledLink to="/login">Войти в аккаунт</StyledLink>
         <Title>Регистрация</Title>
         <Input
           type="text"

@@ -64,6 +64,16 @@ const ForgotPassword = styled(Link)`
   font-size: 14px;
 `;
 
+const StyledLink = styled(Link)`
+  display: block;
+  text-align: center;
+  color: #008EDE;
+  text-decoration: none;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
+  margin-bottom: 16px;
+`;
+
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -88,7 +98,7 @@ const Login = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('token', data.access_token);
-        navigate('/recommendations');
+        navigate('/');
       } else {
         const error = await response.json();
         alert(error.detail);
@@ -103,6 +113,7 @@ const Login = () => {
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
+        <StyledLink to="/signup">Зарегистрироваться</StyledLink>
         <Title>Вход</Title>
         <Input
           type="email"
